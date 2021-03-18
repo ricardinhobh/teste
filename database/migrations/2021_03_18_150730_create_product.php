@@ -19,6 +19,7 @@ class CreateProduct extends Migration
             $table->integerIncrements('articleCode');
             $table->string('articleName');
             $table->double('unitPrice');
+            $table->smallInteger('amount');
         });
     }
 
