@@ -12,5 +12,6 @@ class Order extends Model
         'orderDate',
         'totalAmountWihtoutDiscount',
         'totalAmountWithDiscount',
+
     ];
 }
