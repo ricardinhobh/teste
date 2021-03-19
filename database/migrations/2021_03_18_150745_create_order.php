@@ -15,6 +15,10 @@ class CreateOrder extends Migration
     {
         Schema::create('order', function (Blueprint $table) {
             $table->id();
+            $table->integer('orderCode')->autoIncrement();
+            $table->date('orderDate');
+            $table->double('totalAmountWihtoutDiscount');
+            $table->double('totalAmountWithDiscount')->nullable();
             $table->timestamps();
         });
     }
