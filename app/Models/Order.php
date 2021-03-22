@@ -14,4 +14,8 @@ class Order extends Model
         'totalAmountWithDiscount',
 
     ];
+    public function productsOrder()
+    {
+        return $this->hasMany(ProductOrder::class);
+    }
 }

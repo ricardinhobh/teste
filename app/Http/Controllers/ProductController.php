@@ -11,11 +11,12 @@ class ProductController extends Controller
     public function index()
     {
         # code...
-        $products = Product::all();;
+        $products = Product::all();
 
         return view('createProduct',[
             'products' => $products
             ]
         );
     }
+
 }

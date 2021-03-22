@@ -12,7 +12,19 @@
 
     </head>
     <body>
-        <h3>CRIAR NOVO PEDIDO</h3>
+        <div class="container">
+            <h3>CRIAR NOVO PEDIDO</h3>
+            <h3>LISTA DE PRODUTOS</h3>
+            <div class="container-fluid">
+                {{ $products }}
 
+            </div>
+            <form>
+                <div class="form-group">
+
+                </div>
+            </form>
+
+        </div>
     </body>
 </html>
