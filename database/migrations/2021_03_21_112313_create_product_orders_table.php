@@ -15,12 +15,15 @@ class CreateProductOrdersTable extends Migration
     {
         Schema::create('product_orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('productId');
-            $table->foreign('productId')
+            $table->integer('amountProduct');
+            $table->double('totalWithoutDiscount');
+            $table->double('totalWithDiscount');
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')
             ->references('id')
             ->on('products');
-            $table->unsignedBigInteger('orderId');
-            $table->foreign('orderId')
+            $table->unsignedBigInteger('order_id');
+            $table->foreign('order_id')
             ->references('id')
             ->on('orders')
             ->onDelete('cascade');

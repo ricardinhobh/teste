@@ -29,11 +29,11 @@
                             <input hidden value="{{ $product->articleName }}" id="articleName{{ $product->id }}">
                             <p class="card-text">Article description</p>
                             <p class="card-text">Preço Unitario: R${{ $product->unitPrice }}</p>
-                            <input hidden value="{{ $product->unitPrice }}" id="articleunitPrice{{ $product->id }}">
+                            <input hidden value="{{ $product->unitPrice }}" id="articleUnitPrice{{ $product->id }}">
                             <p class="card-text">Estoque: {{ $product->amount }}</p>
                             <input hidden value="{{ $product->amount }}" id="articleamount{{ $product->id }}">
                             <button class="btn btn-sm btn-success" value="{{ $product->id }}" id="addArticle">Adicionar Item</button>
-                            <button class="btn btn-danger btn-sm">Remover Item</button>
+                            <button class="btn btn-danger btn-sm" value="{{ $product->id }}" id="removeArticle">Remover Item</button>
                         </div>
                     </div>
                     @endforeach
@@ -41,20 +41,32 @@
             </div>
             <div class="container">
                 <h3> LISTA DE COMPRAS</h3>
-                <form>
-                    <div class="form-group">
-                        <table id="articles" class="table table-striped table-sm table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>ITEM</th>
-                                    <th>QUANT.</th>
-                                    <th>TOTAL</th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-                </form>
+                    <form method="POST" action="{{ url('order') }}">
+                        @csrf
+
+                            <div id="articlesOrder">
+                                <div class="form-row">
+                                    <div class="form-group col-sm-1">
+                                        <label>#</label>
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label>ITEM</label>
+                                    </div>
+                                    <div class="form-group col-sm-2">
+                                        <label>QUANT.</label>
+                                    </div>
+                                    <div class="form-group col-sm-2">
+                                        <label>TOTAL</label>
+                                    </div>
+                                    <div class="form-group col-sm-2">
+                                        <label>TOTAL COM DESCONTO</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <button type="submit" class="btn btn-primary">ENVIAR</button>
+                    </form>
+
             </div>
         </div>
     </body>

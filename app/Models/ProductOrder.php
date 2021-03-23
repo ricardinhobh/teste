@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class ProductOrder extends Model
 {
     //
-    protected $fillable = ['orderId','productId'];
+    protected $fillable = ['order_id','product_id','amountProduct','totalWithoutDiscount','totalWithDiscount'];
     public function productsOrder()
     {
-        return $this->belongstoMany(Order::class);
+        return $this->belongsTo(Order::class);
     }
 }

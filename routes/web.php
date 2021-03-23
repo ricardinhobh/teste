@@ -16,5 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','ProductOrderController@index');
 
+
 Route::resource('product','ProductController');
+Route::get('showOrder/{id}','ProductOrderController@showOrder')->name('showOrder');
+Route::get('listOrder','ProductOrderController@listOrder')->name('listOrder');
 Route::resource('order', 'ProductOrderController');

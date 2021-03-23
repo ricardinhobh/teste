@@ -16,8 +16,7 @@ class CreateOrder extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->date('orderDate');
-            $table->double('totalAmountWihtoutDiscount');
-            $table->double('totalAmountWithDiscount')->nullable();
+            $table->string('orderCode',10)->nullable();
             $table->timestamps();
         });
     }

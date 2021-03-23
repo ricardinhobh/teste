@@ -8,7 +8,6 @@ class Order extends Model
 {
     //
     protected $fillable = [
-       'orderCode',
         'orderDate',
         'totalAmountWihtoutDiscount',
         'totalAmountWithDiscount',
