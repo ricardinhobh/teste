@@ -33,7 +33,6 @@
                             <p class="card-text">Estoque: {{ $product->amount }}</p>
                             <input hidden value="{{ $product->amount }}" id="articleamount{{ $product->id }}">
                             <button class="btn btn-sm btn-success" value="{{ $product->id }}" id="addArticle">Adicionar Item</button>
-                            <button class="btn btn-danger btn-sm" value="{{ $product->id }}" id="removeArticle">Remover Item</button>
                         </div>
                     </div>
                     @endforeach
@@ -56,10 +55,7 @@
                                         <label>QUANT.</label>
                                     </div>
                                     <div class="form-group col-sm-2">
-                                        <label>TOTAL</label>
-                                    </div>
-                                    <div class="form-group col-sm-2">
-                                        <label>TOTAL COM DESCONTO</label>
+                                        <label>PREÇO UNIT.</label>
                                     </div>
                                 </div>
                             </div>

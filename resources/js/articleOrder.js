@@ -9,12 +9,6 @@ $(document).on('click','#addArticle',function (e) {
 
     let articles = document.getElementById("articlesOrder");
 
-    if(!isEmptyObject(document.getElementById('row'+id))){
-        document.getElementById('inputArticleAmount'+id).value = parseInt(document.getElementById('inputArticleAmount'+id).value)+1;
-        document.getElementById('inputArticleTotal'+id).value = parseInt(document.getElementById('articleUnitPrice'+id).value) + parseInt(document.getElementById('inputArticleTotal'+id).value);
-    }
-    else
-    {
         let row = document.createElement('div');
         row.setAttribute('class','form-row');
         row.setAttribute('id','row'+id);
@@ -58,45 +52,10 @@ $(document).on('click','#addArticle',function (e) {
         inputArticleTotal.value = document.getElementById('articleUnitPrice'+id).value;
         row.appendChild(inputArticleTotal);
 
-        let inputArticleTotalWithDiscount = document.createElement('input');
-        inputArticleTotalWithDiscount.setAttribute('class','form-control col-sm-2');
-        inputArticleTotalWithDiscount.setAttribute('readonly','true');
-        inputArticleTotalWithDiscount.setAttribute('id','inputArticleTotalWithDiscount'+id);
-        inputArticleTotalWithDiscount.setAttribute('name','inputArticleTotalWithDiscount[]');
-        inputArticleTotalWithDiscount.value = 0;
-        row.appendChild(inputArticleTotalWithDiscount);
-
         articles.appendChild(row);
 
-    }
-    if(parseInt(document.getElementById('inputArticleAmount'+id).value) >= 5 && parseInt(document.getElementById('inputArticleAmount'+id).value) <= 9 && parseInt(document.getElementById('inputArticleTotal'+id).value) >= 500 ){
-        document.getElementById('inputArticleTotalWithDiscount'+id).value =  parseInt(document.getElementById('inputArticleTotal'+id).value) -(parseInt(document.getElementById('inputArticleTotal'+id).value)*(15/100));
-
-    }
-
 });
 
-$(document).on('click','#removeArticle',function (e) {
-
-    //console.log($(this).val());
-    let id = $(this).val();
-
-    if(!isEmptyObject(document.getElementById('row'+id))){
-        document.getElementById('inputArticleAmount'+id).value = parseInt(document.getElementById('inputArticleAmount'+id).value)-1;
-        document.getElementById('inputArticleTotal'+id).value = parseInt(document.getElementById('inputArticleTotal'+id).value) - parseInt(document.getElementById('articleUnitPrice'+id).value);
-        if(parseInt(document.getElementById('inputArticleAmount'+id).value) == 0)
-            document.getElementById('row'+id).remove();
-        if(parseInt(document.getElementById('inputArticleAmount'+id).value) >= 5 && parseInt(document.getElementById('inputArticleAmount'+id).value) <= 9 && parseInt(document.getElementById('inputArticleTotal'+id).value) >= 500 ){
-            document.getElementById('inputArticleTotalWithDiscount'+id).value =  parseInt(document.getElementById('inputArticleTotal'+id).value) -(parseInt(document.getElementById('inputArticleTotal'+id).value)*(15/100));
-
-        }
-    }
-    else
-    {
-       alert('Item não está na lista.');
-    }
-
-});
 $(document).on('change','#selectOrder',function(e){
     console.log($(this).val());
     let id = $(this).val();

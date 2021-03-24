@@ -66,7 +66,7 @@
     </body>
     <script>
         function listOrder(){
-            window.location.href = {{ url('listOrder') }};
+            window.location.href = 'listOrder';
         }
     </script>
 </html>

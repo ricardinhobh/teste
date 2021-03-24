@@ -40,21 +40,14 @@ class ProductOrderController extends Controller
             $order->orderCode =(date('Y-m-').$order->id);
             $order->save();
         }
-
-        //dd(count($request->id));
-        for($i=0;$i<count($request->id);$i++){
-
-            $productOrder = new ProductOrder();
-            $productOrder->amountProduct = $request->inputArticleAmount[$i];
-            $productOrder->totalWithoutDiscount = $request->inputArticleTotal[$i];
-            $productOrder->totalWithDiscount = $request->inputArticleTotalWithDiscount[$i];
-            $productOrder->product_id  = $request->id[$i];
-            $productOrder->order_id  = $order->id;
-            $productOrder->save();
+        if(ProductOrder::groupByArticle($request,$order->id)){
+            return ProductOrderController::showOrder($order->id);
         }
-
-      return ProductOrderController::showOrder($order->id);
+        else{
+            return false;
+        }
     }
+
     public static function  showOrder($id)
     {
         $order = Order::find($id);
@@ -92,5 +85,6 @@ class ProductOrderController extends Controller
             'orders' => $orders
         ]);
     }
+
 
 }
